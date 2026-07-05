@@ -32,6 +32,111 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Booking calendar tabs, used on schedule.html.
+// Plain vanilla tab switching, deliberately kept free of any Cal.com-related
+// code so it can be verified/debugged on its own. Panels are shown/hidden
+// with inline styles (not CSS classes) so there is no dependency on any
+// stylesheet rule to make this work.
+document.addEventListener("DOMContentLoaded", function () {
+  console.log("buttons found:", document.querySelectorAll("[data-tab]").length);
+  console.log("panels found:", document.querySelectorAll(".tab-panel").length);
+  console.log("first button:", document.querySelector("[data-tab]"));
+
+  var tabButtons = document.querySelectorAll(".tab-button");
+  var tabPanels = document.querySelectorAll(".tab-panel");
+
+  if (!tabButtons.length || !tabPanels.length) {
+    return;
+  }
+
+  function showPanel(target) {
+    var targetPanel = document.getElementById("tab-" + target);
+    for (var i = 0; i < tabPanels.length; i++) {
+      tabPanels[i].style.display = "none";
+    }
+    if (targetPanel) {
+      targetPanel.style.display = "block";
+    }
+  }
+
+  function activateButton(clickedButton) {
+    for (var i = 0; i < tabButtons.length; i++) {
+      tabButtons[i].classList.remove("active");
+      tabButtons[i].setAttribute("aria-selected", "false");
+    }
+    clickedButton.classList.add("active");
+    clickedButton.setAttribute("aria-selected", "true");
+  }
+
+  for (var i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].addEventListener("click", function (event) {
+      var clickedButton = event.currentTarget;
+      var target = clickedButton.getAttribute("data-tab");
+      showPanel(target);
+      activateButton(clickedButton);
+    });
+  }
+
+  // Force the initial visible state to match whichever button/panel is
+  // marked active in the HTML, instead of relying on CSS to get it right.
+  var initialButton = document.querySelector(".tab-button.active") || tabButtons[0];
+  showPanel(initialButton.getAttribute("data-tab"));
+  activateButton(initialButton);
+});
+
+// Booking calendar Cal.com lazy-init, used on schedule.html.
+// Kept fully separate from the tab-switching listener above. Panel "ria"
+// initializes its Cal.com embed eagerly, inline in the HTML, since it is
+// visible on page load. Panels "pdc" and "quick" start hidden, so their
+// embeds are initialized here the first time their tab is clicked —
+// initializing a Cal.com inline embed into a hidden container can leave it
+// blank, since the iframe sizes itself based on the container's dimensions
+// at init time.
+document.addEventListener("DOMContentLoaded", function () {
+  var tabButtons = document.querySelectorAll(".tab-button");
+
+  if (!tabButtons.length) {
+    return;
+  }
+
+  var calPanelConfig = {
+    pdc: {
+      elementOrSelector: "#my-cal-inline-pdc",
+      calLink: "jschwalenberg/pdc"
+    },
+    quick: {
+      elementOrSelector: "#my-cal-inline-quick",
+      calLink: "jschwalenberg/quick"
+    }
+  };
+  var initializedCalPanels = {};
+
+  function initCalPanel(target) {
+    var config = calPanelConfig[target];
+    if (!config || initializedCalPanels[target] || typeof Cal === "undefined" || !Cal.ns[target]) {
+      return;
+    }
+
+    Cal.ns[target]("inline", {
+      elementOrSelector: config.elementOrSelector,
+      config: { layout: "month_view", useSlotsViewOnSmallScreen: "true" },
+      calLink: config.calLink
+    });
+    Cal.ns[target]("ui", {
+      cssVarsPerTheme: { light: { "cal-brand": "#123B6D" }, dark: { "cal-brand": "#C9A227" } },
+      hideEventTypeDetails: false,
+      layout: "month_view"
+    });
+    initializedCalPanels[target] = true;
+  }
+
+  for (var i = 0; i < tabButtons.length; i++) {
+    tabButtons[i].addEventListener("click", function (event) {
+      initCalPanel(event.currentTarget.getAttribute("data-tab"));
+    });
+  }
+});
+
 // Retirement Paycheck Planner logic, used on calculator.html.
 var glwbRates = {
   40: { S: 0.0445, J: 0.0395 }, 41: { S: 0.0455, J: 0.0405 }, 42: { S: 0.0465, J: 0.0415 },

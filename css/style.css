@@ -508,6 +508,43 @@ main {
   text-decoration: underline;
 }
 
+/* Booking calendar tabs (schedule.html) */
+.tab-list {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.tab-button {
+  flex: 1;
+  background: var(--white);
+  border: 2px solid var(--navy);
+  border-radius: var(--radius-btn);
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--navy);
+  cursor: pointer;
+  text-align: center;
+}
+
+.tab-button.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--white);
+}
+
+.tab-panel {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .tab-list {
+    flex-direction: column;
+  }
+}
+
 .cta-support {
   margin: 0.75rem 0 0;
   font-size: 0.9rem;
