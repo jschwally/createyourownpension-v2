@@ -211,6 +211,12 @@ main {
   margin: 0 auto;
 }
 
+.narrow-cta {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .section-subheadline {
   font-size: 1.125rem;
   color: var(--slate);
@@ -506,6 +512,16 @@ main {
 .article-body a[target="_blank"] {
   color: var(--gold);
   text-decoration: underline;
+}
+
+.article-footnote {
+  font-size: 0.8rem;
+  color: var(--slate);
+  margin-top: -1rem;
+}
+
+.gold-link {
+  color: var(--gold);
 }
 
 /* Booking calendar tabs (schedule.html) */
