@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequence of Returns Risk: Why Timing Is Everything in Retirement - Create Your Own Pension</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-title" href="index.html">
+        <img src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="primaryNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html" class="nav-cta">Schedule a Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div>
+        <span class="eyebrow">Retirement Strategy</span>
+        <h1>Sequence of Returns Risk: Why Timing Is Everything in Retirement</h1>
+        <p class="article-meta">By John Schwalenberg &nbsp;|&nbsp; March 2026</p>
+      </div>
+    </section>
+
+    <article class="article-body">
+      <p>
+        Most retirement conversations focus on average returns. How
+        much did the market return last year? What is the long term
+        average? What rate of return should I assume in my plan?
+      </p>
+      <p>
+        Those are reasonable questions during accumulation. But
+        retirement changes the math completely.
+      </p>
+      <p>
+        When you begin taking income from your portfolio, the order of
+        returns matters far more than the average. A bad stretch of
+        market performance in the early years of retirement, while you
+        are making withdrawals, can do lasting damage that no
+        subsequent recovery can fully repair. This is called sequence
+        of returns risk, and it is one of the most consequential and
+        least discussed risks in retirement planning.
+      </p>
+      <p>
+        The three scenarios below use actual S&amp;P 500 returns from
+        2000 through 2025, a period that included the Dot Com collapse,
+        the Great Financial Crisis, and Covid, to illustrate exactly how
+        this plays out.
+      </p>
+      <p>
+        Scenario 1 proves that without withdrawals, the order of
+        returns is completely irrelevant. The same returns in reverse
+        order produce the identical ending balance.
+      </p>
+      <p>
+        Scenario 2 shows what happens when a $1,000,000 portfolio
+        begins taking $40,000 in annual withdrawals starting in the
+        year 2000, right into one of the worst stretches in modern
+        market history.
+      </p>
+      <p>
+        Scenario 3 shows how splitting a $600,000 portfolio at age 60,
+        allocating a portion to a Guaranteed Lifetime Withdrawal
+        Benefit annuity and leaving the remainder completely untouched,
+        produces dramatically better outcomes while generating the same
+        $40,000 in annual income starting at age 70.
+      </p>
+      <p class="article-lead-in">The numbers tell the story. Use the tabs below to explore each scenario.</p>
+    </article>
+
+    <section style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
+      <style>
+        .tabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;}
+        .tab{padding:8px 16px;border-radius:8px;border:0.5px solid #d1d5db;background:#FAFAF8;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;}
+        .tab.active{background:#123B6D;color:#fff;border-color:#123B6D;}
+        .panel{display:none;}
+        .panel.active{display:block;}
+        .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:1.5rem;}
+        .kpi{background:#F2F5F8;border-radius:8px;padding:0.85rem 1rem;}
+        .kpi-label{font-size:12px;color:#6B7280;margin-bottom:4px;line-height:1.4;}
+        .kpi-value{font-size:20px;font-weight:500;color:#1F2937;}
+        .kpi-value.gold{color:#C9A227;}
+        .kpi-value.green{color:#27500A;}
+        .kpi-value.red{color:#A32D2D;}
+        .kpi-value.navy{color:#123B6D;}
+        .chart-wrap{position:relative;width:100%;height:300px;margin-bottom:1rem;}
+        .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#6B7280;margin-bottom:1.5rem;}
+        .legend-item{display:flex;align-items:center;gap:5px;}
+        .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+        .legend-dash{width:16px;height:3px;border-radius:0;flex-shrink:0;}
+        .insight{background:#F2F5F8;border-left:3px solid #123B6D;border-radius:0 8px 8px 0;padding:0.85rem 1rem;font-size:14px;color:#1F2937;line-height:1.6;margin-bottom:0.75rem;}
+        .scenario-note{font-size:11px;color:#9ca3af;margin-top:0.5rem;line-height:1.5;}
+        .compare-bar{background:#F2F5F8;border-radius:8px;padding:1rem;margin-bottom:0.75rem;}
+        .compare-label{font-size:12px;color:#6B7280;margin-bottom:6px;}
+        .bar-track{background:#e5e7eb;border-radius:4px;height:8px;width:100%;margin-bottom:4px;overflow:hidden;}
+        .bar-fill{height:100%;border-radius:4px;}
+        .bar-meta{display:flex;justify-content:space-between;font-size:12px;color:#6B7280;}
+      </style>
+
+      <div class="tabs"><button class="tab active" onclick="showPanel(0)">Scenario 1: No withdrawals</button><button class="tab" onclick="showPanel(1)">Scenario 2: 4% withdrawal</button><button class="tab" onclick="showPanel(2)">Scenario 3: GLWB strategy</button></div>
+
+      <div class="panel active" id="panel-0"><div class="kpi-row"><div class="kpi"><div class="kpi-label">Starting balance</div><div class="kpi-value">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Actual sequence ending</div><div class="kpi-value green">$7,528,461</div></div><div class="kpi"><div class="kpi-label">Reversed sequence ending</div><div class="kpi-value green">$7,528,461</div></div><div class="kpi"><div class="kpi-label">Difference</div><div class="kpi-value">$0</div></div></div><div class="chart-wrap"><canvas id="chart0" role="img" aria-label="Actual and reversed S&P 500 returns converging to identical ending values with no withdrawals">Both sequences converge to identical ending values.</canvas></div><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#2a78d6"></span>Actual returns 2000 to 2025</span><span class="legend-item"><span class="legend-dot" style="background:#eda100"></span>Reversed returns</span></div><div class="insight"><strong>Key takeaway:</strong> Without withdrawals, the order of returns is completely irrelevant. Both sequences produce identical ending balances of $7,528,461 despite dramatically different year-by-year performance. During accumulation, average return is all that matters.</div><div class="scenario-note">Starting balance $1,000,000. Actual S&amp;P 500 annual returns 2000 to 2025. No withdrawals taken. Average annual return 9.69%. Illustrative purposes only. Past performance is not indicative of future results.</div></div>
+
+      <div class="panel" id="panel-1"><div class="kpi-row"><div class="kpi"><div class="kpi-label">Starting balance</div><div class="kpi-value">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Annual withdrawal</div><div class="kpi-value gold">$40,000</div></div><div class="kpi"><div class="kpi-label">Total withdrawn 25 yrs</div><div class="kpi-value gold">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Ending portfolio balance</div><div class="kpi-value red">$1,610,182</div></div></div><div class="chart-wrap"><canvas id="chart1" role="img" aria-label="Portfolio balance dropping sharply in early years due to withdrawals during negative market returns">Portfolio drops sharply when withdrawals coincide with early market losses.</canvas></div><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#2a78d6"></span>Portfolio with $40,000 per year withdrawal</span><span class="legend-item" style="align-items:center"><span class="legend-dash" style="background:#e34948"></span>&nbsp;No withdrawal baseline</span></div><div class="insight"><strong>Key takeaway:</strong> On the surface, ending with $1,610,182 after withdrawing $1,000,000 over 25 years looks like a success. You took out a million dollars and still have money left. Most people would consider that a win. But compare it to the same portfolio without withdrawals, which grew to $7,528,461 over the same period, and the picture changes completely. The $40,000 annual withdrawal combined with early market losses created a $5,918,279 gap. That is not a failure of the market. It is the cost of sequence of returns risk.</div><div class="scenario-note">Starting balance $1,000,000. Actual S&amp;P 500 annual returns 2000 to 2025. $40,000 annual withdrawal beginning year one. Total withdrawn $1,000,000 over 25 years. Illustrative purposes only. Past performance is not indicative of future results.</div></div>
+
+      <div class="panel" id="panel-2"><div class="kpi-row"><div class="kpi"><div class="kpi-label">Starting balance</div><div class="kpi-value">$600,000</div></div><div class="kpi"><div class="kpi-label">GLWB premium</div><div class="kpi-value navy">$284,380</div></div><div class="kpi"><div class="kpi-label">Remaining portfolio</div><div class="kpi-value navy">$315,620</div></div><div class="kpi"><div class="kpi-label">Annual guaranteed income</div><div class="kpi-value gold">$40,000</div></div><div class="kpi"><div class="kpi-label">Total income paid 25 yrs</div><div class="kpi-value gold">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Portfolio at age 95</div><div class="kpi-value green">$8,114,546</div></div></div><div class="chart-wrap"><canvas id="chart2" role="img" aria-label="Investment portfolio growing uninterrupted for 35 years alongside GLWB benefit base during 10 year deferral">Investment portfolio grows uninterrupted for 35 years while GLWB funds all income.</canvas></div><div class="legend"><span class="legend-item"><span class="legend-dot" style="background:#1baf7a"></span>Investment portfolio no withdrawals 35 yr growth</span><span class="legend-item"><span class="legend-dot" style="background:#2a78d6"></span>GLWB benefit base 7% rollup 10 yr deferral</span></div><div class="compare-bar"><div class="compare-label">Scenario 2 ending balance after $1,000,000 income from $1,000,000 start</div><div class="bar-track"><div class="bar-fill" style="width:17%;background:#A32D2D"></div></div><div class="bar-meta"><span style="color:#A32D2D;font-weight:500">$1,610,182</span><span>$1,000,000 starting balance</span></div></div><div class="compare-bar"><div class="compare-label">Scenario 3 ending balance after $1,000,000 income from $600,000 start</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#27500A"></div></div><div class="bar-meta"><span style="color:#27500A;font-weight:500">$8,114,546</span><span>$600,000 starting balance</span></div></div><div class="insight"><strong>Key takeaway:</strong> Starting with $400,000 less and taking the same $40,000 annual income, the GLWB strategy produces a portfolio ending balance of $8,114,546 versus $1,610,182. The investment portfolio never funds income so it grows completely uninterrupted for 35 years. Sequence of returns risk is removed from the equation entirely.</div><div class="scenario-note">Starting balance $600,000 at age 60. $284,380 allocated to GLWB, $315,620 remains invested. GLWB benefit base grows at 7% annual rollup during 10 year deferral. Income of $40,000 annually begins at age 70 based on 7.15% single life payout rate. Investment portfolio grows at 9.69% average S&amp;P 500 return for 35 years with zero withdrawals. Illustrative purposes only. Not a contract or guarantee of benefits. Actual results will vary by carrier, product, and market conditions. Past performance is not indicative of future results.</div></div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+      const years0 = [2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025];
+      const actual0 = [909000,800920,623917,802856,890207,933916,1081381,1140749,718672,908832,1045702,1067767,1238610,1639795,1864283,1890010,2116055,2577990,2465074,3241326,3837730,4939543,4044991,5108420,6386546,7528461];
+      const reverse0 = [1178800,1473736,1861181,1524121,1961696,2322648,3054050,2920283,3557781,3983291,4038261,4591098,6078155,7050660,7199429,8283663,10475520,6599578,6961894,8061178,8456981,9377101,12066454,9399767,8282135,7528461];
+      const portfolio1 = [869000,725676,525302,635958,665150,657809,721677,721297,414417,484072,516973,487881,525942,656295,706142,675887,716723,833184,756690,954972,1090687,1363823,1076834,1319934,1610182,1610182];
+
+      function buildGLWB() {
+        const premium = 284380, rollup = 0.07, sp = 0.0969;
+        let port = 315620, glwb = premium;
+        const portData = [], glwbData = [], labels = [];
+        for (let yr = 1; yr <= 35; yr++) {
+          port = port * (1 + sp);
+          if (yr <= 10) {
+            glwb = glwb * (1 + rollup);
+          }
+          portData.push(Math.round(port));
+          glwbData.push(Math.round(glwb));
+          labels.push('Yr ' + yr);
+        }
+        return { labels, portData, glwbData };
+      }
+      const g = buildGLWB();
+      const gridColor = 'rgba(180,180,180,0.2)';
+      const fmt = v => '$' + Math.round(v).toLocaleString();
+
+      new Chart(document.getElementById('chart0'), {
+        type: 'line',
+        data: {
+          labels: years0,
+          datasets: [
+            { label: 'Actual', data: actual0, borderColor: '#2a78d6', borderWidth: 2, pointRadius: 0, tension: 0.3, fill: false },
+            { label: 'Reversed', data: reverse0, borderColor: '#eda100', borderWidth: 2, pointRadius: 0, tension: 0.3, borderDash: [5, 4], fill: false }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
+          },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 8 } },
+            y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v / 1000000).toFixed(1) + 'M' } }
+          }
+        }
+      });
+
+      new Chart(document.getElementById('chart1'), {
+        type: 'line',
+        data: {
+          labels: years0,
+          datasets: [
+            { label: 'With withdrawals', data: portfolio1, borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.3, fill: true },
+            { label: 'No withdrawal', data: actual0, borderColor: '#e34948', borderWidth: 1.5, pointRadius: 0, tension: 0.3, borderDash: [4, 3], fill: false }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
+          },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 8 } },
+            y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v / 1000000).toFixed(1) + 'M' } }
+          }
+        }
+      });
+
+      new Chart(document.getElementById('chart2'), {
+        type: 'line',
+        data: {
+          labels: g.labels,
+          datasets: [
+            { label: 'Investment portfolio', data: g.portData, borderColor: '#1baf7a', backgroundColor: 'rgba(27,175,122,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.3, fill: true },
+            { label: 'GLWB benefit base', data: g.glwbData, borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.06)', borderWidth: 2, pointRadius: 0, tension: 0.3, borderDash: [5, 4], fill: false }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
+          },
+          scales: {
+            x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 10 } },
+            y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v / 1000000).toFixed(1) + 'M' } }
+          }
+        }
+      });
+
+      function showPanel(i) {
+        document.querySelectorAll('.tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
+        document.querySelectorAll('.panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
+      }
+    </script>
+
+    <section class="section section--gray-blue">
+      <div class="narrow-cta">
+        <h2>Ready to Remove Sequence Risk From Your Retirement Plan?</h2>
+        <p>
+          The math is clear. A guaranteed income floor does not just
+          provide income. It protects your investment portfolio from
+          the single greatest threat to retirement savings. Schedule a
+          complimentary call and we will walk through what this
+          strategy could look like for your specific situation.
+        </p>
+
+        <div class="section-cta">
+          <div class="cta-row">
+            <a href="schedule.html" class="btn btn-primary">Schedule Your Complimentary Call</a>
+            <a href="calculator.html" class="btn btn-secondary">Calculate Your Income Gap First</a>
+          </div>
+          <p class="cta-support">Licensed Texas Life and Health Insurance Professional | TDI License #2266812 | Independent, I Work For You</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+        <p class="footer-tagline">Build the retirement income no employer is giving you.</p>
+      </div>
+      <div class="footer-links">
+        <h3>Pages</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html">Schedule a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Get in Touch</h3>
+        <p><a href="mailto:support@createyourownpension.org">support@createyourownpension.org</a></p>
+        <p><a href="schedule.html" class="btn btn-primary">Schedule a Call</a></p>
+      </div>
+    </div>
+    <div class="footer-legal-bar">
+      <p class="footer-legal-name">John Schwalenberg | Licensed Texas Life and Health Insurance Professional | TDI License #2266812 | Independent Insurance Agent</p>
+      <p>The information on this website is for educational and informational purposes only and does not constitute financial, investment, tax, or legal advice. Insurance products are subject to terms and conditions of the issuing carrier. Any guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company. Product availability varies by state. Licensed in Texas.</p>
+      <p>&copy; 2026 Create Your Own Pension. All rights reserved. <a href="faq.html">Terms of Use</a> and <a href="faq.html">Privacy Policy</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

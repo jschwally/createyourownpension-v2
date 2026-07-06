@@ -524,6 +524,12 @@ main {
   color: var(--gold);
 }
 
+.article-lead-in {
+  font-family: var(--font-heading);
+  color: var(--navy);
+  font-size: 18px;
+}
+
 /* Booking calendar tabs (schedule.html) */
 .tab-list {
   display: flex;
