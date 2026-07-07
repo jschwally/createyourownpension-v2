@@ -13,7 +13,7 @@
   --font-heading: "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  --nav-height: 72px;
+  --nav-height: 96px;
   --radius-btn: 8px;
   --max-width: 960px;
   --border-subtle: rgba(107, 114, 128, 0.25);
@@ -85,7 +85,7 @@ a {
 
 .site-title img {
   display: block;
-  height: 40px;
+  height: 80px;
   width: auto;
 }
 
@@ -814,7 +814,7 @@ footer h3 {
 }
 
 .footer-logo {
-  height: 36px;
+  height: 80px;
   width: auto;
   margin-bottom: 0.75rem;
 }
