@@ -46,24 +46,19 @@
     <!-- SECTION 2: HOW IT WORKS -->
     <section class="how-it-works">
       <div class="how-it-works-inner">
-        <h2>How to Use This Tool</h2>
+        <h2>How to Use This Calculator</h2>
         <p class="advisor-note">No personal information required. No obligation. Just clarity.</p>
 
         <div class="steps-grid">
           <div class="how-step-card">
             <div class="how-step-number">1</div>
-            <h3>Find Your Gap</h3>
-            <p>Enter your monthly essential expenses and guaranteed income sources. The calculator shows the difference between what is coming in and what is going out.</p>
+            <h3>Enter Your Essential Expenses</h3>
+            <p>Housing, healthcare, food, transportation and other monthly bills you must cover in retirement regardless of what the market does.</p>
           </div>
           <div class="how-step-card">
             <div class="how-step-number">2</div>
-            <h3>Explore Your Options</h3>
-            <p>Use the second calculator to see how much guaranteed lifetime income a premium amount could generate based on your age and income timing.</p>
-          </div>
-          <div class="how-step-card">
-            <div class="how-step-number">3</div>
-            <h3>Schedule a Conversation</h3>
-            <p>The numbers are a starting point, not a final answer. When you are ready, schedule a complimentary call and we will work through your complete picture together.</p>
+            <h3>Add Your Guaranteed Income</h3>
+            <p>Social Security, any pension, or other income that arrives on schedule every month no matter what markets do. The calculator shows your income gap instantly.</p>
           </div>
         </div>
 
@@ -151,102 +146,18 @@
       </div>
     </section>
 
-    <!-- SECTION 4: BRIDGE -->
-    <section class="bridge-section">
-      <div class="bridge-inner">
-        <h2>Now Let's Look at the Solution</h2>
-        <p>A Fixed Indexed Annuity with a Guaranteed Lifetime Withdrawal Benefit rider is designed to do one specific thing: create a stream of income you cannot outlive, regardless of how long you live or what markets do.</p>
-        <p>The calculator below lets you explore how a specific premium amount could translate into guaranteed monthly income. You control the inputs. You see the results in real time.</p>
-        <p>You do not have to close your entire gap with one strategy. Many clients choose to cover a portion of their shortfall with guaranteed income and leave the remainder to their investment portfolio. That balance is personal and we will work through it together.</p>
-      </div>
-    </section>
-
-    <!-- SECTION 5: CALCULATOR 2 -->
-    <section>
-      <div class="calc-wrapper">
-        <div class="calc-section">
-          <div class="calc-header">
-            <h2>Calculator 2 — Pension Income Projection</h2>
-            <p>Explore how much guaranteed lifetime income a premium amount could generate</p>
-          </div>
-
-          <div class="section-label">Your Details</div>
-          <div class="input-grid">
-            <div class="input-group">
-              <label>Current Age</label>
-              <input type="number" id="currage" placeholder="e.g. 60" min="40" max="80" oninput="calcPension()">
-            </div>
-            <div class="input-group">
-              <label>Age to Start Income</label>
-              <input type="number" id="startage" placeholder="e.g. 67" min="40" max="85" oninput="calcPension()">
-            </div>
-            <div class="input-group">
-              <label>Payout Type</label>
-              <select id="payouttype" onchange="calcPension()">
-                <option value="">Select...</option>
-                <option value="S">Single Life</option>
-                <option value="J">Joint Life</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label>Premium Amount ($)</label>
-              <input type="number" id="premium" placeholder="e.g. 250000" oninput="calcPension()">
-            </div>
-          </div>
-
-          <div id="pension-results-wrap" style="display:none">
-            <div class="pension-results">
-              <div class="pension-row"><span class="plabel">Premium Amount</span><span class="pvalue" id="p-premium"></span></div>
-              <div class="pension-row"><span class="plabel">Age Income Begins</span><span class="pvalue" id="p-startage"></span></div>
-              <div class="pension-row"><span class="plabel">Deferral Period</span><span class="pvalue" id="p-deferral"></span></div>
-              <div class="pension-row"><span class="plabel">Illustrated GLWB Payout Rate</span><span class="pvalue" id="p-rate"></span></div>
-              <div class="pension-row"><span class="plabel">Illustrated Benefit Base at Income Start</span><span class="pvalue" id="p-base"></span></div>
-              <div class="pension-row total"><span class="plabel">Estimated Monthly Income</span><span class="pvalue" id="p-monthly"></span></div>
-              <div class="pension-row total"><span class="plabel">Estimated Annual Income</span><span class="pvalue" id="p-annual"></span></div>
-            </div>
-
-            <div class="remaining-grid" id="remaining-grid" style="display:none">
-              <div class="result-card neutral-fill">
-                <div class="label">Monthly Income from Annuity</div>
-                <div class="value" id="r-annuity-monthly">$0</div>
-              </div>
-              <div class="result-card neutral-fill" id="r-remaining-card">
-                <div class="label" id="r-remaining-label">Remaining Monthly Gap</div>
-                <div class="value" id="r-remaining-value">$0</div>
-              </div>
-            </div>
-
-            <div id="required-premium-box" class="required-premium-box" style="display:none">
-              <div class="rp-icon">$</div>
-              <div class="text">
-                <div class="headline">Estimated Premium to Fully Close Your Gap</div>
-                <div class="amount" id="required-premium-amount">$0</div>
-                <div class="sub">Illustrative only. Actual premium will vary by product, carrier, and timing.</div>
-              </div>
-            </div>
-
-            <div id="pension-status-msg" class="status-msg" style="display:none"></div>
-          </div>
-
-          <a class="cta-btn" href="https://cal.com/jschwalenberg" target="_blank">Schedule Your Complimentary Call</a>
-          <a class="cta-btn-secondary" href="mailto:john@createyourownpension.org">I Have Questions About My Results</a>
-          <div class="disclosure">
-            Calculator results are illustrative only and will vary based on user inputs, product selection, carrier, and market timing. GLWB payout rates shown are illustrative general rates and do not represent any specific carrier or product. Not a contract or guarantee of benefits. For informational purposes only. Products and availability vary by state. Licensed in Texas. TDI License #2266812.
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- SECTION 6: CLOSING CTA -->
     <section class="closing-cta">
       <div class="closing-cta-inner">
-        <h2>Ready to Turn These Numbers Into a Real Plan?</h2>
-        <p>The calculator gives you a picture. A conversation turns that picture into a strategy. Schedule a complimentary call and we will work through your complete retirement income picture together.</p>
+        <h2>Now You Know Your Number. Let's Talk About What to Do With It.</h2>
+        <p>Your income gap is the starting point. A free 60 minute Retirement Income Analysis turns that number into a strategy.</p>
+        <p>We will walk through your complete retirement income picture, talk through what a Pension Strategy could look like for your specific situation, and answer every question you have. No pressure. No obligation.</p>
         <div class="closing-cta-buttons">
-          <a href="https://cal.com/jschwalenberg" class="btn-gold" target="_blank">Schedule Your Complimentary Call</a>
+          <a href="schedule.html" class="btn btn-secondary">Schedule a Free Call</a>
+          <a href="how-it-works.html" class="btn btn-outline-white">Learn How It Works</a>
         </div>
         <p class="closing-trust">Licensed Texas Life and Health Insurance Professional | TDI License #2266812 | Independent, I Work For You</p>
-        <p class="closing-disclosure">Calculator results are illustrative only and will vary based on user inputs, product selection, carrier, and market timing. A guaranteed income strategy may not be suitable for everyone. Products and availability vary by state. Licensed in Texas.</p>
+        <p class="closing-disclosure">Calculator results are illustrative only and will vary based on user inputs. For informational purposes only. Not a contract or guarantee of benefits. Licensed in Texas.</p>
       </div>
     </section>
   </main>
