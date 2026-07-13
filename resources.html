@@ -34,15 +34,85 @@
   </header>
 
   <main>
-    <section class="section section--white">
-      <div class="section-inner">
-        <h1>Resources</h1>
-        <p>Guides and reference material for planning your own retirement income.</p>
-        <ul>
-          <li>Understanding withdrawal rates</li>
-          <li>Tax-advantaged accounts overview</li>
-          <li>Diversification basics</li>
-        </ul>
+    <section style="background: var(--navy); padding: 3.5rem 1.5rem 3rem; text-align: center;">
+      <div>
+        <span style="display: inline-block; color: var(--gold); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.85rem;">Free Educational Resources</span>
+        <h1 style="font-family: var(--font-heading); color: var(--white); font-size: clamp(26px, 4vw, 42px); line-height: 1.2;">Tools and Insights for Your Retirement</h1>
+        <p style="color: #b8c8db; font-size: 18px; line-height: 1.65; margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto; text-align: center;">Educational articles, interactive tools, and illustrations to help you understand retirement income planning.</p>
+      </div>
+    </section>
+
+    <!-- CARD GRID SECTION -->
+    <style>
+      .resource-card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+      }
+      .resource-card {
+        background: var(--white);
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        border-top: 4px solid var(--navy);
+      }
+      @media (max-width: 860px) {
+        .resource-card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .resource-card-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+    <section style="background: var(--warm-white); padding: 5rem 1.5rem;">
+      <div style="max-width: 1200px; margin: 0 auto;">
+        <div class="resource-card-grid">
+          <div class="resource-card">
+            <span style="background: var(--navy); color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1rem;">Article</span>
+            <h3 style="font-family: var(--font-heading); color: var(--navy); font-size: 20px; font-weight: 600;">Finding Your Estimated Social Security Benefit</h3>
+            <p style="color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 0.5rem;">Learn how to create your my Social Security account and find your projected monthly benefit in about ten minutes.</p>
+            <a href="social-security-estimate.html" style="margin-top: 1rem; display: block; font-weight: 600; color: var(--gold);">Read Article</a>
+          </div>
+          <div class="resource-card">
+            <span style="background: var(--navy); color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1rem;">Article</span>
+            <h3 style="font-family: var(--font-heading); color: var(--navy); font-size: 20px; font-weight: 600;">What Is Sequence of Returns Risk?</h3>
+            <p style="color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 0.5rem;">A plain language explanation of why the timing of market returns matters more than averages when you are taking income in retirement.</p>
+            <a href="sequence-of-returns-risk.html" style="margin-top: 1rem; display: block; font-weight: 600; color: var(--gold);">Read Article</a>
+          </div>
+          <div class="resource-card">
+            <span style="background: var(--navy); color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1rem;">Article</span>
+            <h3 style="font-family: var(--font-heading); color: var(--navy); font-size: 20px; font-weight: 600;">Learn More About John Schwalenberg</h3>
+            <p style="color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 0.5rem;">John's personal story, retirement philosophy, professional background, and what drives his approach to retirement income planning.</p>
+            <a href="about-john.html" style="margin-top: 1rem; display: block; font-weight: 600; color: var(--gold);">Read Article</a>
+          </div>
+          <div class="resource-card">
+            <span style="background: var(--midnight); color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1rem;">Illustration</span>
+            <h3 style="font-family: var(--font-heading); color: var(--navy); font-size: 20px; font-weight: 600;">Sequence of Returns Risk: Why Timing Is Everything</h3>
+            <p style="color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 0.5rem;">An interactive illustration showing how Hope and Helen, twin sisters with identical savings, end up with dramatically different outcomes based on one strategic decision.</p>
+            <a href="sequence-of-returns-illustration.html" style="margin-top: 1rem; display: block; font-weight: 600; color: var(--gold);">View Illustration</a>
+          </div>
+          <div class="resource-card">
+            <span style="background: var(--gold); color: white; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 1rem;">Tool — Free Access Required</span>
+            <h3 style="font-family: var(--font-heading); color: var(--navy); font-size: 20px; font-weight: 600;">Retirement Paycheck Estimator</h3>
+            <p style="color: var(--slate); font-size: 14px; line-height: 1.6; margin-top: 0.5rem;">Project how much guaranteed monthly income a portion of your retirement savings could generate. Enter your income gap and explore premium options.</p>
+            <a href="retirement-paycheck-estimator.html" style="margin-top: 1rem; display: block; font-weight: 600; color: var(--gold);">🔒 Access the Estimator</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section style="background: var(--navy); padding: 4rem 1.5rem; text-align: center;">
+      <div style="max-width: 640px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-heading); color: var(--white); font-size: clamp(22px, 3vw, 34px);">Ready to Put This Into Practice?</h2>
+        <p style="color: #b8c8db; font-size: 17px; line-height: 1.65; margin-top: 1rem;">Understanding the problem is the first step. Finding your number is the second. Schedule a free call and we will help you with the rest.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+          <a class="btn btn-secondary" href="calculator.html">Calculate Your Income Gap</a>
+          <a class="btn btn-outline-white" href="schedule.html">Schedule a Free Call</a>
+        </div>
       </div>
     </section>
   </main>
