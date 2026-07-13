@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Retirement Paycheck Estimator - Create Your Own Pension</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-title" href="index.html">
+        <img src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="primaryNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html" class="nav-cta">Schedule a Free Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero">
+      <div>
+        <span class="eyebrow">Free Planning Tool</span>
+        <h1>The Retirement Paycheck Estimator</h1>
+        <p>See how much guaranteed lifetime income a portion of your savings could generate.</p>
+      </div>
+    </section>
+
+    <!-- GATE SECTION -->
+    <section style="background: var(--warm-white); padding: 3rem 1.5rem;">
+      <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: var(--font-heading); color: var(--navy); font-size: clamp(20px, 3vw, 28px);">Access the Retirement Paycheck Estimator</h2>
+        <p style="color: var(--slate); font-size: 16px; line-height: 1.7; margin-top: 1rem; margin-bottom: 2rem;">Enter your information below for free access to the Pension Income Projection Calculator. No obligation. We may follow up to see if you have any questions.</p>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeoNSCsVVEVlaHeNbNOndTaiAAm5U5is0Rnt2DcAl3K5oNzMQ/viewform?embedded=true" width="100%" height="870" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+      </div>
+    </section>
+
+    <!-- INCOME GAP INPUT SECTION -->
+    <section style="background: var(--soft-gray); padding: 2rem 1.5rem;">
+      <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: var(--font-heading); color: var(--navy); font-size: 22px;">What Is Your Monthly Income Gap?</h2>
+        <p style="color: var(--slate); font-size: 15px; margin-bottom: 1rem;">Enter the income gap you calculated using the free Income Gap Calculator. If you have not yet calculated your gap, visit the Income Gap Calculator first. <a href="calculator.html" style="color: var(--gold); font-weight: 600;">Calculate Your Income Gap here</a></p>
+        <label for="manualGap">My Monthly Income Gap ($)</label>
+        <input type="number" id="manualGap" placeholder="e.g. 2500" oninput="updateManualGap()" style="width: 100%; max-width: 300px; margin-top: 1rem; border: 0.5px solid #d1d5db; border-radius: 8px; padding: 0 10px; height: 36px; font-size: 14px;">
+      </div>
+    </section>
+
+    <!-- SECTION: CALCULATOR 2 -->
+    <section>
+      <div class="calc-wrapper">
+        <div class="calc-section">
+          <div class="calc-header">
+            <h2>Project Your Guaranteed Monthly Income</h2>
+            <p>Explore how much guaranteed lifetime income a premium amount could generate</p>
+          </div>
+
+          <div class="section-label">Your Details</div>
+          <div class="input-grid">
+            <div class="input-group">
+              <label>Current Age</label>
+              <input type="number" id="currage" placeholder="e.g. 60" min="40" max="80" oninput="calcPension()">
+            </div>
+            <div class="input-group">
+              <label>Age to Start Income</label>
+              <input type="number" id="startage" placeholder="e.g. 67" min="40" max="85" oninput="calcPension()">
+            </div>
+            <div class="input-group">
+              <label>Payout Type</label>
+              <select id="payouttype" onchange="calcPension()">
+                <option value="">Select...</option>
+                <option value="S">Single Life</option>
+                <option value="J">Joint Life</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Premium Amount ($)</label>
+              <input type="number" id="premium" placeholder="e.g. 250000" oninput="calcPension()">
+            </div>
+          </div>
+
+          <div id="pension-results-wrap" style="display:none">
+            <div class="pension-results">
+              <div class="pension-row"><span class="plabel">Premium Amount</span><span class="pvalue" id="p-premium"></span></div>
+              <div class="pension-row"><span class="plabel">Age Income Begins</span><span class="pvalue" id="p-startage"></span></div>
+              <div class="pension-row"><span class="plabel">Deferral Period</span><span class="pvalue" id="p-deferral"></span></div>
+              <div class="pension-row total"><span class="plabel">Estimated Monthly Income</span><span class="pvalue" id="p-monthly"></span></div>
+              <div class="pension-row total"><span class="plabel">Estimated Annual Income</span><span class="pvalue" id="p-annual"></span></div>
+            </div>
+
+            <div class="remaining-grid" id="remaining-grid" style="display:none">
+              <div class="result-card neutral-fill">
+                <div class="label">Monthly Income from Annuity</div>
+                <div class="value" id="r-annuity-monthly">$0</div>
+              </div>
+              <div class="result-card neutral-fill" id="r-remaining-card">
+                <div class="label" id="r-remaining-label">Remaining Monthly Gap</div>
+                <div class="value" id="r-remaining-value">$0</div>
+              </div>
+            </div>
+
+            <div id="required-premium-box" class="required-premium-box" style="display:none">
+              <div class="rp-icon">$</div>
+              <div class="text">
+                <div class="headline">Estimated Premium to Fully Close Your Gap</div>
+                <div class="amount" id="required-premium-amount">$0</div>
+                <div class="sub">Illustrative only. Actual premium will vary by product, carrier, and timing.</div>
+              </div>
+            </div>
+
+            <div id="pension-status-msg" class="status-msg" style="display:none"></div>
+          </div>
+
+          <a class="cta-btn" href="https://cal.com/jschwalenberg" target="_blank">Schedule Your Complimentary Call</a>
+          <a class="cta-btn-secondary" href="mailto:john@createyourownpension.org">I Have Questions About My Results</a>
+          <div class="disclosure">
+            Calculator results are illustrative only and will vary based on user inputs, product selection, carrier, and market timing. Payout rates used in calculations are illustrative general rates and do not represent any specific carrier or product. Not a contract or guarantee of benefits. For informational purposes only. Products and availability vary by state. Licensed in Texas. TDI License #2266812.
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+        <p class="footer-tagline">Guarantee the Bills. Enjoy the Rest.</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html">Schedule a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Get in Touch</h3>
+        <p><a href="mailto:support@createyourownpension.org">support@createyourownpension.org</a></p>
+        <p><a href="schedule.html" class="btn btn-primary">Schedule a Call</a></p>
+      </div>
+    </div>
+    <div class="footer-legal-bar">
+      <p class="footer-legal-name">John Schwalenberg | Licensed Texas Life and Health Insurance Professional | TDI License #2266812 | Independent Insurance Agent</p>
+      <p>The information on this website is for educational and informational purposes only and does not constitute financial, investment, tax, or legal advice. Insurance products are subject to terms and conditions of the issuing carrier. Any guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company. Product availability varies by state. Licensed in Texas.</p>
+      <p>&copy; 2026 Create Your Own Pension. All rights reserved. <a href="faq.html">Terms of Use</a> and <a href="faq.html">Privacy Policy</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

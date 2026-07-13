@@ -111,6 +111,12 @@ function calcGap() {
   calcPension();
 }
 
+function updateManualGap(){
+  const val = parseFloat(document.getElementById('manualGap')?.value) || 0;
+  monthlyGap = -val;
+  calcPension();
+}
+
 function calcPension() {
   var currage = parseInt(document.getElementById("currage").value, 10) || 0;
   var startage = parseInt(document.getElementById("startage").value, 10) || 0;
