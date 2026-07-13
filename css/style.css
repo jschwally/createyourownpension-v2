@@ -1429,7 +1429,7 @@ footer h3 {
   }
 }
 
-/* Page header (navy hero with eyebrow/headline/subheadline) — used on calculator.html and about.html */
+/* Page header (navy hero with eyebrow/headline/subheadline) — used on calculator.html and other pages */
 .page-hero {
   background: var(--navy);
   padding: 3.5rem 1.5rem 3rem;
