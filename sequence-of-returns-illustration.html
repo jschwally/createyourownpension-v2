@@ -3,10 +3,275 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sequence of Returns Risk: Why Timing Is Everything in Retirement - Create Your Own Pension</title>
+  <title>Hope &amp; Helen: Same Income, Very Different Retirements - Create Your Own Pension</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    .cyop-hh { font-family: 'Inter', sans-serif; max-width: 860px; margin: 0 auto; }
+
+    .cyop-hh .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 560px) {
+      .cyop-hh .profile-grid { grid-template-columns: 1fr; }
+    }
+
+    .cyop-hh .profile-card {
+      background: #FFFFFF;
+      border: 1px solid var(--soft-gray);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(18, 59, 109, 0.06);
+    }
+
+    .cyop-hh .profile-card.hope { border-top: 4px solid var(--navy); }
+    .cyop-hh .profile-card.helen { border-top: 4px solid var(--gold); }
+
+    .cyop-hh .profile-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .cyop-hh .profile-tag {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .cyop-hh .profile-line {
+      font-size: 14px;
+      color: #1F2937;
+      margin-bottom: 8px;
+      padding-left: 14px;
+      position: relative;
+    }
+
+    .cyop-hh .profile-line::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+    }
+
+    .cyop-hh .profile-card.hope .profile-line::before { background: var(--navy); }
+    .cyop-hh .profile-card.helen .profile-line::before { background: var(--gold); }
+
+    .cyop-hh .profile-line strong { color: var(--navy); }
+
+    .cyop-hh .card {
+      background: #FFFFFF;
+      border: 1px solid var(--soft-gray);
+      border-radius: 12px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 3px rgba(18, 59, 109, 0.06);
+    }
+
+    .cyop-hh .card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .cyop-hh .legend-row {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+      font-size: 14px;
+    }
+
+    .cyop-hh .legend-item { display: flex; align-items: center; gap: 8px; color: var(--slate); }
+    .cyop-hh .swatch { width: 16px; height: 4px; border-radius: 2px; }
+
+    .cyop-hh .chart-box {
+      position: relative;
+      height: 380px;
+      margin-bottom: 24px;
+    }
+
+    .cyop-hh .outcome-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 560px) {
+      .cyop-hh .outcome-grid { grid-template-columns: 1fr; }
+    }
+
+    .cyop-hh .outcome {
+      padding: 20px;
+      border-radius: 10px;
+      background: var(--soft-gray);
+    }
+
+    .cyop-hh .outcome-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 6px;
+    }
+
+    .cyop-hh .outcome-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      color: var(--navy);
+    }
+
+    .cyop-hh .outcome-sub { font-size: 13px; color: var(--slate); margin-top: 4px; }
+
+    .cyop-hh .winner-banner {
+      background: #0B2747;
+      color: #FFFFFF;
+      border-radius: 10px;
+      padding: 22px 24px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .cyop-hh .winner-banner .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--gold);
+      display: block;
+      margin: 4px 0 6px;
+    }
+
+    .cyop-hh .winner-banner .sub {
+      font-size: 13px;
+      color: #C9D5E4;
+    }
+
+    .cyop-hh .note {
+      background: var(--soft-gray);
+      border-left: 3px solid var(--gold);
+      border-radius: 6px;
+      padding: 18px 20px;
+      font-size: 14px;
+      color: var(--slate);
+      margin-top: 24px;
+    }
+
+    .cyop-hh .note strong { color: #1F2937; }
+
+    .cyop-hh .cta-row {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .cyop-hh .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+
+    .cyop-hh .cta-btn:hover { background: #A8841F; }
+
+    .cyop-hh .math-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      background: var(--soft-gray);
+      border: none;
+      border-radius: 8px;
+      padding: 14px 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      margin-top: 28px;
+      transition: background 0.15s ease;
+    }
+
+    .cyop-hh .math-toggle:hover { background: #E7ECF2; }
+
+    .cyop-hh .math-toggle .chevron {
+      transition: transform 0.2s ease;
+      font-size: 12px;
+    }
+
+    .cyop-hh .math-toggle.open .chevron { transform: rotate(180deg); }
+
+    .cyop-hh .math-panel {
+      display: none;
+      margin-top: 16px;
+      overflow-x: auto;
+    }
+
+    .cyop-hh .math-panel.open { display: block; }
+
+    .cyop-hh .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      min-width: 620px;
+    }
+
+    .cyop-hh .math-table th {
+      text-align: right;
+      padding: 10px 12px;
+      background: #0B2747;
+      color: #FFFFFF;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cyop-hh .math-table th:first-child,
+    .cyop-hh .math-table td:first-child {
+      text-align: left;
+    }
+
+    .cyop-hh .math-table td {
+      text-align: right;
+      padding: 9px 12px;
+      color: #1F2937;
+      border-bottom: 1px solid var(--soft-gray);
+    }
+
+    .cyop-hh .math-table tr:nth-child(even) td {
+      background: var(--soft-gray);
+    }
+
+    .cyop-hh .math-table td.negative { color: #B91C1C; }
+    .cyop-hh .math-table td.positive { color: #15803D; }
+
+    .cyop-hh .math-caption {
+      font-size: 13px;
+      color: var(--slate);
+      margin-bottom: 14px;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -35,170 +300,113 @@
   <main>
     <section class="page-hero">
       <div>
-        <span class="eyebrow">Retirement Strategy</span>
-        <h1>Sequence of Returns Risk: Why Timing Is Everything in Retirement</h1>
-        <p class="article-meta">By John Schwalenberg &nbsp;|&nbsp; March 2026</p>
+        <span class="eyebrow">Pension Strategy · Illustration</span>
+        <h1>Same $40,000 a Year. Very Different Retirements.</h1>
+        <p>Hope and Helen both retire at 65. Both take $40,000 a year in retirement income for the next 25 years, the same total, the same 25 years, even the same market. The only difference is where that income comes from.</p>
       </div>
     </section>
 
-    <article class="article-body">
-      <h2>Meet Hope and Helen</h2>
-      <p>
-        Hope and Helen are twin sisters. They turned 60 this year. Both
-        have worked hard their entire careers and both have saved
-        $500,000 for retirement. They have the same goal: generate
-        $40,000 a year in retirement income starting at age 70 and make
-        their money last as long as they do.
-      </p>
-      <p>Their strategies could not be more different.</p>
-      <p>
-        Hope is confident in the market. She keeps her full $500,000
-        invested and lets it grow for 10 years. By age 70 her portfolio
-        has dropped to $454,800 after weathering two major market
-        crashes. She begins withdrawing $40,000 a year and trusts that
-        the market will continue to recover.
-      </p>
-      <p>
-        Helen is a planner. At age 60 she splits her $500,000. She
-        allocates $284,380 to a Pension Strategy and leaves the
-        remaining $215,620 in the market. Helen's investment portfolio
-        has also
-        suffered the same market losses, dropping to just $134,445 at
-        its lowest point in year 3 at age 62. But here is the
-        difference: Helen
-        never needs to touch it. Her pension is funding all of her income.
-        Her portfolio simply recovers and keeps growing uninterrupted.
-        At age 70 her annuity begins paying $40,000 a year, guaranteed
-        for life regardless of what markets do.
-      </p>
-      <p>
-        Both sisters take $1,000,000 in total income over 25 years.
-        Both experience the same market returns. The difference is how
-        those market returns affect their retirement accounts along
-        the way.
-      </p>
-      <p class="article-lead-in">Use the tabs below to follow their stories.</p>
-    </article>
+    <section style="background: var(--warm-white); padding: 3rem 1.5rem;">
+      <div class="cyop-hh">
 
-    <section style="max-width:900px;margin:0 auto;padding:2rem 1.5rem;">
-      <style>
-        .tabs{display:flex;gap:8px;margin-bottom:1.5rem;flex-wrap:wrap;}
-        .tab{padding:8px 16px;border-radius:8px;border:0.5px solid #d1d5db;background:#FAFAF8;color:#6B7280;font-size:13px;font-weight:500;cursor:pointer;}
-        .tab.active{background:#123B6D;color:#fff;border-color:#123B6D;}
-        .panel{display:none;}
-        .panel.active{display:block;}
-        .kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:1.5rem;}
-        .kpi{background:#F2F5F8;border-radius:8px;padding:0.85rem 1rem;}
-        .kpi-label{font-size:12px;color:#6B7280;margin-bottom:4px;line-height:1.4;}
-        .kpi-value{font-size:20px;font-weight:500;color:#1F2937;}
-        .kpi-value.gold{color:#C9A227;}
-        .kpi-value.green{color:#27500A;}
-        .kpi-value.red{color:#A32D2D;}
-        .kpi-value.navy{color:#123B6D;}
-        .chart-wrap{position:relative;width:100%;height:300px;margin-bottom:1rem;}
-        .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#6B7280;margin-bottom:1.5rem;}
-        .legend-item{display:flex;align-items:center;gap:5px;}
-        .legend-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
-        .insight{background:#F2F5F8;border-left:3px solid #123B6D;border-radius:0 8px 8px 0;padding:0.85rem 1rem;font-size:14px;color:#1F2937;line-height:1.6;margin-bottom:0.75rem;}
-        .scenario-note{font-size:11px;color:#9ca3af;margin-top:0.5rem;line-height:1.5;}
-        .compare-bar{background:#F2F5F8;border-radius:8px;padding:1rem;margin-bottom:0.75rem;}
-        .compare-label{font-size:12px;color:#6B7280;margin-bottom:6px;}
-        .bar-track{background:#e5e7eb;border-radius:4px;height:8px;width:100%;margin-bottom:4px;overflow:hidden;}
-        .bar-fill{height:100%;border-radius:4px;}
-        .bar-meta{display:flex;justify-content:space-between;font-size:12px;color:#6B7280;}
-      </style>
-
-      <div class="tabs"><button class="tab active" onclick="showPanel(0)">Hope: Full Market Strategy</button><button class="tab" onclick="showPanel(1)">Helen: Pension Strategy</button></div>
-
-      <div class="panel active" id="panel-0">
-        <div class="kpi-row">
-          <div class="kpi"><div class="kpi-label">Total income taken</div><div class="kpi-value gold">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Portfolio at age 95</div><div class="kpi-value green">$3,700,315</div></div><div class="kpi"><div class="kpi-label">Income ever at risk</div><div class="kpi-value red">Yes, every year</div></div>
+        <div class="profile-grid">
+          <div class="profile-card hope">
+            <div class="profile-name">Hope</div>
+            <div class="profile-tag">Draws income from her portfolio</div>
+            <div class="profile-line">Retires at age <strong>65</strong> with a <strong>$1,000,000</strong> portfolio</div>
+            <div class="profile-line">Withdraws <strong>$40,000</strong> a year directly from that portfolio</div>
+            <div class="profile-line">Her balance rides the market up and down every year</div>
+          </div>
+          <div class="profile-card helen">
+            <div class="profile-name">Helen</div>
+            <div class="profile-tag">Draws income from a Pension Strategy</div>
+            <div class="profile-line">Retires at age <strong>65</strong> with a <strong>$500,000</strong> portfolio</div>
+            <div class="profile-line">Set up her Pension Strategy years earlier to pay her <strong>$40,000</strong> a year, guaranteed</div>
+            <div class="profile-line">Her portfolio is never touched to generate that income</div>
+          </div>
         </div>
-        <div class="chart-wrap"><canvas id="chart-hope" role="img" aria-label="Hope portfolio balance from age 60 to 95 showing impact of market crashes and withdrawals">Hope's portfolio balance over 35 years with $40,000 annual withdrawals starting at age 70.</canvas></div>
-        <div class="insight"><strong>Hope's story:</strong> Hope's full market strategy works reasonably well because markets eventually recover. After withdrawing $1,000,000 over 25 years she still has $3,700,315 at age 95. But here is what the ending number does not show: every market downturn for 25 years was a direct threat to her income. In 2008 her portfolio dropped to $359,447 while she was still accumulating. In 2022 it dropped again while she was withdrawing. Hope got lucky. In a different sequence she could have run out of money. She never knew for certain which outcome she would get.</div>
-        <div class="scenario-note">Starting balance $500,000 at age 60. Fully invested in market. No withdrawals years 1 to 10. $40,000 annual withdrawal begins at age 70. Actual S&amp;P 500 returns 2000 to 2024 for years 1 to 25. Mirrored returns years 26 to 35. Illustrative purposes only. Past performance is not indicative of future results.</div>
-      </div>
 
-      <div class="panel" id="panel-1">
-        <div class="kpi-row">
-          <div class="kpi"><div class="kpi-label">Helen's starting balance at 60</div><div class="kpi-value">$500,000</div></div><div class="kpi"><div class="kpi-label">Allocated to Pension Strategy</div><div class="kpi-value navy">$284,380</div></div><div class="kpi"><div class="kpi-label">Remaining portfolio at 60</div><div class="kpi-value navy">$215,620</div></div><div class="kpi"><div class="kpi-label">Guaranteed annual income at 70</div><div class="kpi-value gold">$40,000</div></div><div class="kpi"><div class="kpi-label">Total income received</div><div class="kpi-value gold">$1,000,000</div></div><div class="kpi"><div class="kpi-label">Portfolio at age 95</div><div class="kpi-value green">$4,295,056</div></div><div class="kpi"><div class="kpi-label">Income ever at risk</div><div class="kpi-value green">Never</div></div>
+        <div class="card">
+          <h2>25 Years Later</h2>
+
+          <div class="legend-row">
+            <div class="legend-item"><span class="swatch" style="background: var(--navy);"></span> Hope's portfolio (funding her own withdrawals)</div>
+            <div class="legend-item"><span class="swatch" style="background: var(--gold);"></span> Helen's portfolio (untouched, income paid separately)</div>
+          </div>
+
+          <div class="chart-box">
+            <canvas id="hopeHelenChart"></canvas>
+          </div>
+
+          <div class="outcome-grid">
+            <div class="outcome">
+              <div class="outcome-label">Hope's Portfolio, Age 90</div>
+              <div class="outcome-value" id="hopeEnding">$0</div>
+              <div class="outcome-sub">After 25 years of self-funded withdrawals</div>
+            </div>
+            <div class="outcome">
+              <div class="outcome-label">Helen's Portfolio, Age 90</div>
+              <div class="outcome-value" id="helenEnding">$0</div>
+              <div class="outcome-sub">Never withdrawn from, grew untouched</div>
+            </div>
+          </div>
+
+          <div class="winner-banner">
+            Both took home the exact same $1,000,000 in total income.
+            <span class="amount" id="helenAdvantage">$0</span>
+            <span class="sub">in excess portfolio growth for Helen, simply because of where her income came from</span>
+          </div>
+
+          <div class="note">
+            <strong>What this doesn't show:</strong> these numbers are flat, they don't increase
+            for inflation, and they don't account for portfolio management fees, both of which
+            would further reduce Hope's ending balance. This illustration also doesn't include
+            what it cost Helen to set up her Pension Strategy years earlier, that's part of
+            the conversation worth having on a call.
+          </div>
+
+          <div class="cta-row">
+            <a href="schedule.html" class="cta-btn">Schedule a Free Call</a>
+          </div>
+
+          <button class="math-toggle" id="mathToggle" onclick="toggleMath()">
+            <span>Show the math behind this graph</span>
+            <span class="chevron">&#9660;</span>
+          </button>
+
+          <div class="math-panel" id="mathPanel">
+            <p class="math-caption">
+              Year-by-year detail using actual S&amp;P 500 total returns, 2000&ndash;2024.
+              Hope's withdrawal is subtracted first, then that year's return is applied to
+              what remains. Helen's portfolio simply grows, untouched, at the same market
+              returns.
+            </p>
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>Age</th>
+                  <th>Calendar Year</th>
+                  <th>S&amp;P 500 Return</th>
+                  <th>Hope's Portfolio</th>
+                  <th>Helen's Portfolio</th>
+                </tr>
+              </thead>
+              <tbody id="mathTableBody"></tbody>
+            </table>
+          </div>
         </div>
-        <div class="chart-wrap"><canvas id="chart-helen" role="img" aria-label="Helen portfolio balance and GLWB benefit base from age 60 to 95 growing uninterrupted">Helen's portfolio grows uninterrupted for 35 years while GLWB funds all income.</canvas></div>
-        <div class="insight"><strong>Helen's story:</strong> Helen's portfolio suffers the same market losses as Hope's in the early years, dropping to $195,919 at its lowest point. But Helen never needs to sell a single share. Her pension is paying her $40,000 a year starting at age 70, guaranteed, regardless of what markets do. Her portfolio simply weathers the storms and keeps growing uninterrupted for the full 35 years. At age 95 her portfolio has grown to $4,295,056, which is $594,741 more than Hope's. And unlike Hope, Helen never had a single sleepless night wondering if her income would show up that month.</div>
-        <div class="compare-bar"><div class="compare-label">Hope's ending portfolio at age 95</div><div class="bar-track"><div class="bar-fill" style="width:86%;background:#2a78d6"></div></div><div class="bar-meta"><span style="color:#2a78d6;font-weight:500">$3,700,315</span><span>Same income, same returns, same starting amount</span></div></div><div class="compare-bar"><div class="compare-label">Helen's ending portfolio at age 95</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#1baf7a"></div></div><div class="bar-meta"><span style="color:#1baf7a;font-weight:500">$4,295,056</span><span>Helen wins by $594,741</span></div></div>
-        <div class="insight"><strong>The bottom line:</strong> Same starting amount. Same market returns. Same total income taken. Helen ends up with $594,741 more at age 95 and never once worried whether her income would arrive that month. That is what a guaranteed income floor actually buys you. Not just income. Clarity and confidence.</div>
-        <div class="scenario-note">Starting balance $500,000 at age 60. $284,380 allocated to GLWB annuity at 7% annual rollup. Income of $40,000 annually begins at age 70 based on 7.15% single life payout rate at age 70. Remaining $215,620 invested in market for full 35 years with zero withdrawals. Actual S&amp;P 500 returns 2000 to 2024 for years 1 to 25. Mirrored returns years 26 to 35. Illustrative purposes only. Not a contract or guarantee of benefits. Actual results will vary by carrier, product, and market conditions. Past performance is not indicative of future results.</div>
+
       </div>
     </section>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
-    <script>
-      const hopeData = [454500,400415,311923,401445,445203,467018,540807,570551,359447,454800,483471,453904,486529,604364,646962,616820,650839,752722,679602,854176,972544,1211163,951342,1161545,1411931,1742870,1386934,1744794,2026362,2624687,2469121,2967389,3283476,3289485,3700315];
-      const helenData = [195919,172594,134391,172921,191769,201165,232949,245761,154830,195860,225435,230169,266996,353482,401929,407556,456463,555772,531318,698683,827240,1064648,871867,1101068,1376335,1738411,1423869,1832918,2172175,2856410,2731328,3326757,3725968,3778132,4295056];
-      const ageLabels = ['60','61','62','63','64','65','66','67','68','69','70','71','72','73','74','75','76','77','78','79','80','81','82','83','84','85','86','87','88','89','90','91','92','93','94'];
-      const gridColor = 'rgba(180,180,180,0.2)';
-      const fmt = v => '$' + Math.round(v).toLocaleString();
-
-      new Chart(document.getElementById('chart-hope'), {
-        type: 'line',
-        data: {
-          labels: ageLabels,
-          datasets: [
-            { label: 'Hope portfolio', data: hopeData, borderColor: '#2a78d6', backgroundColor: 'rgba(42,120,214,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.3, fill: true }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
-          },
-          scales: {
-            x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 12 } },
-            y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v / 1000000).toFixed(1) + 'M' } }
-          }
-        }
-      });
-
-      new Chart(document.getElementById('chart-helen'), {
-        type: 'line',
-        data: {
-          labels: ageLabels,
-          datasets: [
-            { label: 'Helen portfolio', data: helenData, borderColor: '#1baf7a', backgroundColor: 'rgba(27,175,122,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.3, fill: true }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
-          },
-          scales: {
-            x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 12 } },
-            y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v / 1000000).toFixed(1) + 'M' } }
-          }
-        }
-      });
-
-      function showPanel(i) {
-        document.querySelectorAll('.tab').forEach((t, idx) => t.classList.toggle('active', idx === i));
-        document.querySelectorAll('.panel').forEach((p, idx) => p.classList.toggle('active', idx === i));
-      }
-    </script>
 
     <section class="section section--navy">
       <div class="narrow-cta">
         <h2>Which Sister Are You?</h2>
         <p>
-          Hope's strategy worked out. But it required 25 years of
-          uncertainty and a lot of luck with market timing. Helen's
-          pension strategy worked better and she never had a sleepless
-          night
-          about her income. The good news is you do not have to choose
-          between growth and security. You can have both.
+          Hope's strategy worked out, but it meant riding the market's ups and downs to fund
+          every withdrawal for 25 straight years. Helen's income never depended on the market
+          at all, and her portfolio kept growing the whole time. The good news is you don't
+          have to choose between growth and guaranteed income. You can have both.
         </p>
 
         <div class="section-cta">
@@ -210,6 +418,143 @@
         </div>
       </div>
     </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+      // Actual S&P 500 total returns, 2000-2024, dividends reinvested, chronological order.
+      const SP500_RETURNS = [
+        -0.0910, -0.1189, -0.2210, 0.2868, 0.1088,
+         0.0491,  0.1579,  0.0549, -0.3700, 0.2646,
+         0.1506,  0.0211,  0.1600,  0.3239, 0.1369,
+         0.0138,  0.1196,  0.2183, -0.0438, 0.3149,
+         0.1840,  0.2871, -0.1811,  0.2629, 0.2502
+      ];
+
+      const CALENDAR_YEARS = [
+        2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009,
+        2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019,
+        2020, 2021, 2022, 2023, 2024
+      ];
+
+      const RETIRE_AGE = 65;
+      const YEARS = 25;
+      const HOPE_START = 1000000;
+      const HELEN_START = 500000;
+      const WITHDRAWAL = 40000;
+
+      function formatCurrency(value) {
+        return '$' + Math.round(value).toLocaleString('en-US');
+      }
+
+      function toggleMath() {
+        const panel = document.getElementById('mathPanel');
+        const btn = document.getElementById('mathToggle');
+        panel.classList.toggle('open');
+        btn.classList.toggle('open');
+      }
+
+      const hopeLine = [HOPE_START];
+      const helenLine = [HELEN_START];
+      const ages = [RETIRE_AGE];
+
+      let hopeBal = HOPE_START;
+      let helenBal = HELEN_START;
+
+      for (let i = 0; i < YEARS; i++) {
+        const r = SP500_RETURNS[i];
+
+        if (hopeBal > 0) {
+          hopeBal = Math.max(hopeBal - WITHDRAWAL, 0);
+          hopeBal = hopeBal * (1 + r);
+          if (hopeBal < 0) hopeBal = 0;
+        }
+        hopeLine.push(hopeBal);
+
+        helenBal = helenBal * (1 + r);
+        helenLine.push(helenBal);
+
+        ages.push(RETIRE_AGE + i + 1);
+      }
+
+      const hopeEnding = hopeLine[hopeLine.length - 1];
+      const helenEnding = helenLine[helenLine.length - 1];
+      const advantage = helenEnding - hopeEnding;
+
+      document.getElementById('hopeEnding').textContent = formatCurrency(hopeEnding);
+      document.getElementById('helenEnding').textContent = formatCurrency(helenEnding);
+      document.getElementById('helenAdvantage').textContent = formatCurrency(advantage);
+
+      const tbody = document.getElementById('mathTableBody');
+      for (let i = 0; i < YEARS; i++) {
+        const row = document.createElement('tr');
+        const r = SP500_RETURNS[i];
+        const rClass = r < 0 ? 'negative' : 'positive';
+        row.innerHTML =
+          '<td>' + ages[i + 1] + '</td>' +
+          '<td>' + CALENDAR_YEARS[i] + '</td>' +
+          '<td class="' + rClass + '">' + (r >= 0 ? '+' : '') + (r * 100).toFixed(2) + '%</td>' +
+          '<td>' + formatCurrency(hopeLine[i + 1]) + '</td>' +
+          '<td>' + formatCurrency(helenLine[i + 1]) + '</td>';
+        tbody.appendChild(row);
+      }
+
+      const ctx = document.getElementById('hopeHelenChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ages.map(a => 'Age ' + a),
+          datasets: [
+            {
+              label: "Hope's portfolio",
+              data: hopeLine,
+              borderColor: '#123B6D',
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 0,
+              tension: 0.15
+            },
+            {
+              label: "Helen's portfolio",
+              data: helenLine,
+              borderColor: '#C9A227',
+              backgroundColor: 'transparent',
+              borderWidth: 3,
+              pointRadius: 0,
+              tension: 0.15
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  return context.dataset.label + ': ' + formatCurrency(context.parsed.y);
+                }
+              }
+            }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { maxTicksLimit: 8, color: '#4B5563', font: { family: 'Inter', size: 12 } }
+            },
+            y: {
+              grid: { color: '#F2F5F8' },
+              ticks: {
+                color: '#4B5563',
+                font: { family: 'Inter', size: 12 },
+                callback: function(value) { return formatCurrency(value); }
+              }
+            }
+          }
+        }
+      });
+    </script>
   </main>
 
   <footer>
