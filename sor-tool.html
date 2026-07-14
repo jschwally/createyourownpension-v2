@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Personal Sequence of Returns - Create Your Own Pension</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <style>
+    .kpi{background:#F2F5F8;border-radius:8px;padding:0.85rem 1rem;}
+    .kpi-label{font-size:11px;color:#4B5563;margin-bottom:4px;text-transform:uppercase;letter-spacing:0.04em;}
+    .kpi-value{font-size:20px;font-weight:500;color:#1F2937;}
+    .kpi-highlight{background:#123B6D;}
+    .kpi-highlight .kpi-label{color:#b8c8db;}
+    .kpi-highlight .kpi-value{color:#fff;}
+    .kpi-success{background:#27500A;}
+    .kpi-success .kpi-label{color:#c0dd97;}
+    .kpi-success .kpi-value{color:#fff;}
+    .kpi-danger{background:#A32D2D;}
+    .kpi-danger .kpi-label{color:#f5c1c1;}
+    .kpi-danger .kpi-value{color:#fff;}
+    .input-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1.5rem;}
+    .input-group{display:flex;flex-direction:column;gap:4px;}
+    .input-group label{font-size:12px;color:#4B5563;font-weight:500;text-transform:uppercase;letter-spacing:0.04em;}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="site-title" href="index.html">
+        <img src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primaryNav">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+      <nav id="primaryNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html" class="nav-cta">Schedule a Free Call</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: PAGE HERO -->
+    <section class="page-hero">
+      <div>
+        <span class="eyebrow">Interactive Tool</span>
+        <h1>Your Personal Sequence of Returns</h1>
+        <p>See how actual S&amp;P 500 returns from 1990 to 2025 would have affected your specific retirement portfolio.</p>
+      </div>
+    </section>
+
+    <!-- TOOL SECTION -->
+    <section style="background: var(--warm-white); padding: 3rem 1.5rem;">
+      <div style="max-width: 860px; margin: 0 auto;">
+        <p style="color: var(--slate); font-size: 16px; line-height: 1.7; margin-bottom: 2rem;">Enter your information below to see how your retirement portfolio would have performed using actual market returns. Add a withdrawal amount to see the impact of taking income from your portfolio versus leaving it untouched.</p>
+
+        <div id="greeting" style="font-size:14px;color:#4B5563;margin-bottom:1rem;min-height:20px;"></div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <label for="userName">Your first name (optional)</label>
+            <input type="text" id="userName" placeholder="e.g. John" oninput="update()" style="border: 0.5px solid #d1d5db; border-radius: 8px; height: 36px; padding: 0 10px; font-size: 14px; width: 100%;">
+          </div>
+          <div>
+            <label for="retireAge">Age at retirement</label>
+            <input type="number" id="retireAge" placeholder="e.g. 65" min="40" max="80" oninput="update()" style="border: 0.5px solid #d1d5db; border-radius: 8px; height: 36px; padding: 0 10px; font-size: 14px; width: 100%;">
+          </div>
+          <div>
+            <label for="retireYear">Year of retirement</label>
+            <select id="retireYear" onchange="update()" style="border: 0.5px solid #d1d5db; border-radius: 8px; height: 36px; padding: 0 10px; font-size: 14px; width: 100%;">
+                <option value="1990">1990</option>
+                <option value="1991">1991</option>
+                <option value="1992">1992</option>
+                <option value="1993">1993</option>
+                <option value="1994">1994</option>
+                <option value="1995">1995</option>
+                <option value="1996">1996</option>
+                <option value="1997">1997</option>
+                <option value="1998">1998</option>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+            </select>
+          </div>
+          <div>
+            <label for="startBalance">Starting portfolio balance ($)</label>
+            <input type="number" id="startBalance" placeholder="e.g. 1000000" oninput="update()" style="border: 0.5px solid #d1d5db; border-radius: 8px; height: 36px; padding: 0 10px; font-size: 14px; width: 100%;">
+          </div>
+        </div>
+
+        <!-- CHART 1 SECTION -->
+        <div id="chart1-section" style="display: none;">
+          <div id="chart1-title" style="font-size: 15px; font-weight: 500; color: var(--navy); margin: 1.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 0.5px solid #e5e7eb;"></div>
+          <div id="kpi1" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 1.25rem 0;"></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6B7280;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <span style="width: 10px; height: 10px; border-radius: 2px; background: #2a78d6; display: inline-block;"></span>
+              <span>Portfolio value</span>
+            </div>
+          </div>
+          <div style="position: relative; width: 100%; height: 280px; margin: 1rem 0;">
+            <canvas id="chart1" role="img" aria-label="Portfolio value from retirement year to 2025 with no withdrawals"></canvas>
+          </div>
+          <div id="note1" style="font-size: 11px; color: #9ca3af; margin-top: 0.5rem; line-height: 1.5;"></div>
+        </div>
+
+        <!-- CHART 2 SECTION -->
+        <div id="chart2-section" style="display: none; margin-top: 2rem;">
+          <div id="chart2-title" style="font-size: 15px; font-weight: 500; color: var(--navy); margin: 1.5rem 0 0.75rem; padding-bottom: 6px; border-bottom: 0.5px solid #e5e7eb;"></div>
+          <div>
+            <label for="withdrawal">Annual withdrawal amount ($)</label>
+            <input type="number" id="withdrawal" placeholder="e.g. 40000" oninput="update()" style="max-width: 280px; margin-bottom: 1rem; border: 0.5px solid #d1d5db; border-radius: 8px; height: 36px; padding: 0 10px; font-size: 14px; width: 100%;">
+          </div>
+          <div id="kpi2" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 1.25rem 0;"></div>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px; font-size: 12px; color: #6B7280;">
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <span style="width: 10px; height: 10px; border: 2px dashed #2a78d6; display: inline-block;"></span>
+              <span>No withdrawals</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+              <span style="width: 10px; height: 10px; border-radius: 2px; background: #A32D2D; display: inline-block;"></span>
+              <span>With withdrawals</span>
+            </div>
+          </div>
+          <div style="position: relative; width: 100%; height: 280px; margin: 1rem 0;">
+            <canvas id="chart2" role="img" aria-label="Portfolio value comparison with and without withdrawals from retirement year to 2025"></canvas>
+          </div>
+          <div id="callout2" style="background: var(--soft-gray); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 10px 14px; font-size: 13px; color: var(--slate); line-height: 1.6; margin-top: 1rem;"></div>
+          <div id="note2" style="font-size: 11px; color: #9ca3af; margin-top: 0.5rem; line-height: 1.5;"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section style="background: var(--navy); padding: 4rem 1.5rem; text-align: center;">
+      <div style="max-width: 640px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-heading); color: var(--white); font-size: clamp(22px, 3vw, 34px);">What Would Your Numbers Look Like With a Pension Strategy?</h2>
+        <p style="color: #b8c8db; font-size: 17px; line-height: 1.65; margin-top: 1rem;">If your portfolio is funding your income in retirement, sequence of returns risk is real. A Pension Strategy removes it from the equation entirely.</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 2rem;">
+          <a class="btn btn-secondary" href="calculator.html">Calculate Your Income Gap</a>
+          <a class="btn btn-outline-white" href="how-it-works.html">Learn How It Works</a>
+        </div>
+        <p style="color: #6B7280; font-size: 12px; line-height: 1.6; margin-top: 1.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">This tool uses actual S&amp;P 500 total returns including dividends reinvested from 1990 through 2025. Results are illustrative only and are not a guarantee of future performance. Past performance is not indicative of future results.</p>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+      const SP500 = {1990:-0.031,1991:0.305,1992:0.076,1993:0.101,1994:0.013,1995:0.376,1996:0.230,1997:0.334,1998:0.286,1999:0.210,2000:-0.091,2001:-0.119,2002:-0.221,2003:0.287,2004:0.109,2005:0.049,2006:0.158,2007:0.055,2008:-0.370,2009:0.265,2010:0.151,2011:0.021,2012:0.160,2013:0.324,2014:0.137,2015:0.014,2016:0.120,2017:0.218,2018:-0.044,2019:0.315,2020:0.184,2021:0.287,2022:-0.181,2023:0.263,2024:0.250,2025:0.1788};
+
+      const sel = document.getElementById('retireYear');
+      for (let y = 1990; y <= 2025; y++) {
+        const o = document.createElement('option');
+        o.value = y;
+        o.textContent = y;
+        sel.appendChild(o);
+      }
+      const fmt = v => '$' + Math.round(Math.abs(v)).toLocaleString();
+      const gridColor = 'rgba(128,128,128,0.15)';
+      let c1 = null, c2 = null;
+
+      function update() {
+        const name = document.getElementById('userName').value.trim();
+        const retireAge = parseInt(document.getElementById('retireAge').value) || 0;
+        const retireYear = parseInt(document.getElementById('retireYear').value) || 0;
+        const startBal = parseFloat(document.getElementById('startBalance').value) || 0;
+        const withdrawal = parseFloat(document.getElementById('withdrawal').value) || 0;
+
+        if (!retireYear || !startBal) {
+          document.getElementById('chart1-section').style.display = 'none';
+          document.getElementById('chart2-section').style.display = 'none';
+          return;
+        }
+
+        const years = Object.keys(SP500).map(Number).filter(y => y >= retireYear);
+        const labels = years.map(y => {
+          const age = retireAge ? (retireAge + (y - retireYear)) : y;
+          return retireAge ? 'Age ' + age : String(y);
+        });
+
+        let bal = startBal;
+        const vals1 = [startBal];
+        for (let i = 1; i < years.length; i++) {
+          bal = bal * (1 + SP500[years[i]]);
+          vals1.push(Math.max(0, Math.round(bal)));
+        }
+        const currentAge = retireAge ? retireAge + (2025 - retireYear) : null;
+        const endBal1 = vals1[vals1.length - 1];
+        const gain = endBal1 - startBal;
+
+        document.getElementById('chart1-title').textContent = (name ? name + "'s " : "") + 'portfolio — no withdrawals';
+        document.getElementById('chart1-section').style.display = 'block';
+
+        const k1 = document.getElementById('kpi1');
+        k1.innerHTML = '<div class="kpi"><div class="kpi-label">Starting balance</div><div class="kpi-value">' + fmt(startBal) + '</div></div><div class="kpi ' + (gain >= 0 ? 'kpi-success' : 'kpi-danger') + '"><div class="kpi-label">Balance at end of 2025</div><div class="kpi-value">' + fmt(endBal1) + '</div></div>';
+        k1.innerHTML += (currentAge ? '<div class="kpi kpi-highlight"><div class="kpi-label">Your age in 2025</div><div class="kpi-value">' + currentAge + '</div></div>' : '') + '<div class="kpi"><div class="kpi-label">Total ' + (gain >= 0 ? 'gain' : 'loss') + '</div><div class="kpi-value">' + (gain >= 0 ? '+' : '-') + fmt(Math.abs(gain)) + '</div></div>';
+        document.getElementById('note1').textContent = 'Based on actual S&P 500 total returns including dividends reinvested ' + retireYear + ' through 2025. Illustrative purposes only. Past performance is not indicative of future results.';
+
+        if (c1) { c1.destroy(); c1 = null; }
+        c1 = new Chart(document.getElementById('chart1'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [{
+              label: 'Portfolio value',
+              data: vals1,
+              borderColor: '#2a78d6',
+              backgroundColor: 'rgba(42,120,214,0.08)',
+              borderWidth: 2,
+              pointRadius: 0,
+              tension: 0.3,
+              fill: true
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: { callbacks: { label: ctx => fmt(ctx.parsed.y) } }
+            },
+            scales: {
+              x: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, maxTicksLimit: 8 } },
+              y: { grid: { color: gridColor }, ticks: { color: '#888', font: { size: 11 }, callback: v => '$' + (v >= 1000000 ? (v / 1000000).toFixed(1) + 'M' : (v / 1000).toFixed(0) + 'K') } }
+            }
+          }
+        });
+
+        if (withdrawal > 0) {
+          document.getElementById('chart2-section').style.display = 'block';
+          document.getElementById('chart2-title').textContent = (name ? name + "'s " : "") + 'portfolio with $' + Math.round(withdrawal).toLocaleString() + '/yr withdrawal';
+          let bal2 = startBal;
+          const vals2 = [startBal];
+          let rannOut = null;
+          let rannOutAge = null;
+          let totalWithdrawn = 0;
+
+          for (let i = 1; i < years.length; i++) {
+            bal2 = bal2 * (1 + SP500[years[i]]);
+            if (bal2 > 0) {
+              bal2 -= withdrawal;
+              totalWithdrawn += withdrawal;
+              if (bal2 <= 0 && rannOut === null) {
+                rannOut = years[i];
+                rannOutAge = retireAge ? retireAge + (years[i] - retireYear) : null;
+                bal2 = 0;
+              }
+            }
+            vals2.push(Math.max(0, Math.round(bal2)));
+          }
+          const endBal2 = vals2[vals2.length - 1];
+          const diff = endBal1 - endBal2;
+
+          const k2 = document.getElementById('kpi2');
+          k2.innerHTML = '<div class="kpi"><div class="kpi-label">Starting balance</div><div class="kpi-value">' + fmt(startBal) + '</div></div><div class="kpi"><div class="kpi-label">Annual withdrawal</div><div class="kpi-value">' + fmt(withdrawal) + '</div></div><div class="kpi"><div class="kpi-label">Total withdrawn</div><div class="kpi-value">' + fmt(totalWithdrawn) + '</div></div>';
+          k2.innerHTML += '<div class="kpi ' + (rannOut ? 'kpi-danger' : endBal2 > 0 ? 'kpi-success' : 'kpi-danger') + '"><div class="kpi-label">' + (rannOut ? 'Portfolio ran out' : 'Balance at end of 2025') + '</div><div class="kpi-value">' + (rannOut ? (rannOut + (rannOutAge ? ' (age ' + rannOutAge + ')' : '')) : (fmt(endBal2))) + '</div></div>' + (currentAge ? '<div class="kpi kpi-highlight"><div class="kpi-label">Your age in 2025</div><div class="kpi-value">' + currentAge + '</div></div>' : '');
+
+          const callout = document.getElementById('callout2');
+          if (rannOut) {
+            callout.innerHTML = '<strong>Portfolio depleted in ' + rannOut + (rannOutAge ? ' at age ' + rannOutAge : '') + '.</strong> Withdrawing ' + fmt(withdrawal) + ' per year combined with poor market timing exhausted the portfolio before 2025. Without withdrawals the same portfolio would have ended at ' + fmt(endBal1) + '.';
+          } else {
+            callout.innerHTML = '<strong>Portfolio survived to 2025.</strong> After withdrawing ' + fmt(totalWithdrawn) + ' over ' + (years.length - 1) + ' years the remaining balance is ' + fmt(endBal2) + '. The no-withdrawal portfolio ended at ' + fmt(endBal1) + ', a difference of ' + fmt(diff) + ' — the cost of funding income from this portfolio.';
+          }
+          document.getElementById('note2').textContent = 'Withdrawal taken at end of each year. Based on actual S&P 500 total returns ' + retireYear + ' through 2025. Illustrative purposes only. Past performance is not indicative of future results.';
+        } else {
+          document.getElementById('chart2-section').style.display = 'none';
+          if (c2) { c2.destroy(); c2 = null; }
+        }
+      }
+    </script>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img class="footer-logo" src="images/CYOP_logo_w_Texas.png" alt="Create Your Own Pension">
+        <p class="footer-tagline">Guarantee the Bills. Enjoy the Rest.</p>
+      </div>
+      <div class="footer-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="calculator.html">Calculate Your Gap</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="faq.html">FAQ and Disclosures</a></li>
+          <li><a href="schedule.html">Schedule a Call</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Get in Touch</h3>
+        <p><a href="mailto:support@createyourownpension.org">support@createyourownpension.org</a></p>
+        <p><a href="schedule.html" class="btn btn-primary">Schedule a Call</a></p>
+      </div>
+    </div>
+    <div class="footer-legal-bar">
+      <p class="footer-legal-name">John Schwalenberg | Licensed Texas Life and Health Insurance Professional | TDI License #2266812 | Independent Insurance Agent</p>
+      <p>The information on this website is for educational and informational purposes only and does not constitute financial, investment, tax, or legal advice. Insurance products are subject to terms and conditions of the issuing carrier. Any guarantees are backed solely by the financial strength and claims-paying ability of the issuing insurance company. Product availability varies by state. Licensed in Texas.</p>
+      <p>&copy; 2026 Create Your Own Pension. All rights reserved. <a href="faq.html">Terms of Use</a> and <a href="faq.html">Privacy Policy</a>.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
