@@ -1110,14 +1110,14 @@ main {
   font-size: 16px;
   line-height: 1.8;
   max-width: 760px;
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 
 .hope-helen-cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 1.25rem;
 }
 
 @media (max-width: 640px) {
@@ -1129,7 +1129,7 @@ main {
 .hope-helen-card {
   background: var(--soft-gray);
   border-radius: 12px;
-  padding: 2rem;
+  padding: 1.25rem;
   text-align: center;
   border-top: 4px solid var(--navy);
 }
@@ -1149,7 +1149,7 @@ main {
 .hope-helen-value {
   font-family: var(--font-heading);
   color: var(--navy);
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 700;
   margin-top: 0.5rem;
 }
@@ -1158,17 +1158,39 @@ main {
   color: var(--gold);
 }
 
-.hope-helen-result {
+.hope-helen-conclusion {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.25rem;
   text-align: center;
-  margin-top: 1.5rem;
-  font-size: 18px;
+}
+
+.hope-helen-conclusion-label {
+  color: var(--soft-gray);
+  font-size: 14px;
   font-weight: 600;
-  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hope-helen-conclusion-value {
+  font-family: var(--font-heading);
+  color: var(--gold);
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 0.5rem;
+}
+
+.hope-helen-result {
+  margin-top: 0.75rem;
+  font-size: 14px;
+  color: var(--soft-gray);
 }
 
 .hope-helen-note {
   text-align: center;
-  margin-top: 0.75rem;
+  margin-top: 1rem;
   color: var(--slate);
 }
 
