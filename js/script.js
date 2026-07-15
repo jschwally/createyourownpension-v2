@@ -32,6 +32,54 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Lead-capture form gate: hides the tool markup until the embedded Google Form
+// is submitted or the visitor clicks the "I already submitted" fallback link.
+// True cross-origin polling of the iframe's contents isn't possible (Google
+// Forms doesn't allow it), so submission is inferred from the iframe firing a
+// second "load" event -- the first load is the form itself, the second is the
+// in-iframe navigation to the "response recorded" page after submit. This is
+// a heuristic, not a certainty, which is why the manual link exists as a
+// guaranteed fallback. Used on retirement-paycheck-estimator.html and
+// sor-tool.html; a no-op on any page missing these elements.
+document.addEventListener("DOMContentLoaded", function () {
+  var gateSection = document.getElementById("gateSection");
+  var toolContent = document.getElementById("gateToolContent");
+  var iframe = document.getElementById("gateFormFrame");
+  var manualLink = document.getElementById("gateManualUnlock");
+
+  if (!gateSection || !toolContent || !iframe) {
+    return;
+  }
+
+  var storageKey = "cyopGateUnlocked:" + window.location.pathname;
+
+  function unlockGate() {
+    localStorage.setItem(storageKey, "1");
+    gateSection.style.display = "none";
+    toolContent.style.display = "";
+  }
+
+  if (localStorage.getItem(storageKey) === "1") {
+    unlockGate();
+    return;
+  }
+
+  var loadCount = 0;
+  iframe.addEventListener("load", function () {
+    loadCount++;
+    if (loadCount > 1) {
+      unlockGate();
+    }
+  });
+
+  if (manualLink) {
+    manualLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      unlockGate();
+    });
+  }
+});
+
 // Retirement Paycheck Planner logic, used on calculator.html.
 var glwbRates = {
   40: { S: 0.0445, J: 0.0395 }, 41: { S: 0.0455, J: 0.0405 }, 42: { S: 0.0465, J: 0.0415 },
@@ -51,7 +99,6 @@ var glwbRates = {
 };
 
 var fmt = function (v) { return "$" + Math.round(Math.abs(v)).toLocaleString(); };
-var pct = function (v) { return (v * 100).toFixed(2) + "%"; };
 var getVal = function (id) { return parseFloat(document.getElementById(id).value) || 0; };
 
 var monthlyGap = 0;
@@ -142,8 +189,6 @@ function calcPension() {
   document.getElementById("p-premium").textContent = fmt(premium);
   document.getElementById("p-startage").textContent = startage;
   document.getElementById("p-deferral").textContent = deferral + (deferral === 1 ? " year" : " years");
-  document.getElementById("p-rate").textContent = pct(rate);
-  document.getElementById("p-base").textContent = fmt(benefitBase);
   document.getElementById("p-monthly").textContent = fmt(monthlyIncome);
   document.getElementById("p-annual").textContent = fmt(annualIncome);
   wrap.style.display = "block";
