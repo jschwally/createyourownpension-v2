@@ -168,5 +168,14 @@
   </footer>
 
   <script src="js/script.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const gapParam = urlParams.get('gap');
+    if(gapParam && document.getElementById('manualGap')){
+      document.getElementById('manualGap').value = gapParam;
+      const event = new Event('input');
+      document.getElementById('manualGap').dispatchEvent(event);
+    }
+  </script>
 </body>
 </html>
