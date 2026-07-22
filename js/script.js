@@ -144,7 +144,7 @@ function calcGap() {
     gapCard.className = "result-card red-fill";
     gapLabel.textContent = "Monthly Income Gap";
     gapEl.textContent = fmt(gap);
-    statusEl.innerHTML = '<div class="status-msg gap-msg">You have a monthly income gap of ' + fmt(gap) + ". Use Calculator 2 below to explore how to close it.</div>";
+    statusEl.innerHTML = '<div class="status-msg gap-msg">You have a monthly income gap of <span id=\'gap-amount\'>' + fmt(gap) + "</span>. That is what we are solving for. <a href='retirement-paycheck-estimator.html' style='color:#C9A227;font-weight:600;text-decoration:underline;'>Use the free Retirement Paycheck Estimator</a> to explore how a Pension Strategy could close it.</div>";
     statusEl.style.display = "block";
     annualLine.textContent = "Annual income gap: " + fmt(gap * 12);
   } else {
